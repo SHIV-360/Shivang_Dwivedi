@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Manga Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c0c0c0;
+            color: black;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #d4d0c8;
+            border: 2px solid black;
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 10px;
+            box-shadow: 4px 4px 0px gray;
+        }
+
+        .header {
+            background: navy; /* Keeping navy as you preferred */
+            color: white;
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 10px;
+            justify-content: center;
+        }
+
+        .book-card {
+            background-color: #ece9d8;
+            padding: 15px;
+            border: 2px solid black;
+            box-shadow: 2px 2px 0px gray;
+            border-radius: 5px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            font-size: 14px;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .book-card:hover {
+            transform: scale(1.05);
+        }
+
+        /* Tooltip Styles (Updated to Khaki Theme) */
+        .custom-tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .custom-tooltip-content {
+            position: absolute;
+            bottom: 130%;
+            left: 50%;
+            transform: translateX(-50%);
+            visibility: hidden;
+            opacity: 0;
+            width: 250px;
+            background: linear-gradient(135deg, #f7efdf 50%, #d4cab2 50%);
+            color: black;
+            text-align: center;
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            z-index: 10;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+        }
+
+        .custom-tooltip-container:hover .custom-tooltip-content {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) translateY(-10px);
+        }
+
+        .custom-tooltip-arrow {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -10px;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #a9a292; /* Adjusted to match khaki theme */
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #d4d0c8;
+            border: 2px solid black;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px gray;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body onload="loadBooksAndManga()">
+
+    <div class="container">
+        <div class="header">Books & Manga Collection</div>
+        <div id="books-container"></div>
+
+        <a href="index.html" class="back-button">Back to homePage</a>
+    </div>
+
+    <script>
+        async function loadBooksAndManga() {
+            try {
+                let response = await fetch("books.json");
+                if (!response.ok) throw new Error("JSON file not found or incorrect format");
+                
+                let data = await response.json();
+                let container = document.getElementById("books-container");
+                container.innerHTML = "";
+
+                let categories = {};
+
+                // Group books/manga by category
+                data.books.forEach(book => {
+                    if (!categories[book.category]) {
+                        categories[book.category] = [];
+                    }
+                    categories[book.category].push(book);
+                });
+
+                // Add manga category
+                categories["Manga"] = data.manga;
+
+                // Generate HTML dynamically
+                for (let category in categories) {
+                    container.innerHTML += `<div class="header">${category}</div>`;
+                    let gridContainer = document.createElement("div");
+                    gridContainer.className = "grid-container";
+
+                    categories[category].forEach(item => {
+                        let card = document.createElement("div");
+                        card.className = "book-card custom-tooltip-container";
+                        card.innerHTML = `
+                            <b>${item.title}</b>
+                            <div class="custom-tooltip-content">
+                                <span class="custom-tooltip-arrow"></span>
+                                <p>${item.review}</p>
+                            </div>
+                        `;
+                        gridContainer.appendChild(card);
+                    });
+
+                    container.appendChild(gridContainer);
+                }
+            } catch (error) {
+                console.error("Error loading JSON:", error);
+                document.getElementById("books-container").innerHTML = "<p style='color:red;'>Error loading books. Check console for details.</p>";
+            }
+        }
+    </script>
+
+</body>
+</html>

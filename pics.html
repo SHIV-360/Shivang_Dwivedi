@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Shivang Dwivedi</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #c0c0c0;
+            color: black;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .window {
+            background-color: #d4d0c8;
+            border: 2px solid black;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px;
+            box-shadow: 4px 4px 0px gray;
+            text-align: center;
+        }
+
+        .title-bar {
+            background: navy;
+            color: white;
+            padding: 8px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .section {
+            text-align: left;
+            margin: 10px 0;
+            padding: 10px;
+            border: 2px solid black;
+            background-color: #ece9d8;
+        }
+
+        .section-title {
+            font-weight: bold;
+            background: navy;
+            color: white;
+            padding: 5px;
+            margin: -10px -10px 10px -10px;
+            text-align: center;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Increased min size */
+            gap: 15px;
+            padding: 15px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 3px 3px 6px gray;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.08);
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #d4d0c8;
+            border: 2px solid black;
+            font-family: 'Arial', sans-serif;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px gray;
+            font-size: 14px;
+        }
+
+        .button:active {
+            box-shadow: none;
+            transform: translate(2px, 2px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .modal img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="window">
+        <div class="title-bar">Gallery</div>
+
+        <div class="section">
+            <div class="section-title">"I'm passionate about photography, and I'm excited to share my collection</div>
+            <div class="gallery" id="gallery"></div>
+        </div>
+
+        <div class="button-container">
+            <a href="index.html">
+                <div class="button">Back to homePage</div>
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal for Enlarged Image -->
+    <div class="modal" id="imageModal">
+        <img id="modalImg" src="" alt="Expanded View">
+    </div>
+
+    <script>
+        const imageDir = "gallary/";  // Make sure this folder exists with images
+        const imageCount = 24; // Number of images
+        const gallery = document.getElementById("gallery");
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImg");
+
+        for (let i = 1; i <= imageCount; i++) {
+            let img = document.createElement("img");
+            img.src = `${imageDir}pic${i}.jpg`;
+            img.alt = `Image ${i}`;
+            img.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            };
+            gallery.appendChild(img);
+        }
+
+        // Close modal when clicking outside image
+        modal.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        // Close modal on Esc key press
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,178 @@
+{
+    "books": [
+        {
+            "category": "Murakami",
+            "title": "Norwegian Wood",
+            "review": "A nostalgic story of love, loss, and longing, set against a melancholic Tokyo backdrop. 🍂 [Book]"
+        },
+        {
+            "category": "Murakami",
+            "title": "Kafka on the Shore",
+            "review": "A surreal adventure blending fate, dreams, and metaphysical mysteries. 🐱 [Book]"
+        },
+        {
+            "category": "Murakami",
+            "title": "1Q84",
+            "review": "A parallel world, a strange cult, and a mysterious love story – classic Murakami. 🌌 [Book]"
+        },
+        {
+            "category": "Murakami",
+            "title": "The Wind-Up Bird Chronicle",
+            "review": "A surreal journey through hidden worlds, lost memories, and a mysterious disappearance – Murakami at his finest. 🔍 [Book]"
+        },       
+        {
+            "category": "Psychology",
+            "title": "Thinking, Fast and Slow",
+            "review": "Explores the two systems that drive human thought: instinctive and rational. 🧠 [Book]"
+        },
+        {
+            "category": "Psychology",
+            "title": "The Laws of Human Nature",
+            "review": "A deep dive into human behavior and how to navigate relationships. 🤯 [Book]"
+        },
+        {
+            "category": "Psychology",
+            "title": "Influence: The Psychology of Persuasion",
+            "review": "Reveals the secrets of persuasion and how people are influenced. 🎭 [Book]"
+        },
+        {
+            "category": "Psychology",
+            "title": "The 48 Laws of Power",
+            "review": "A guide to manipulation, strategy, and power dynamics throughout history. 🏛️ [Book]"
+        },
+        {
+            "category": "Psychology",
+            "title": "Never Split the Difference",
+            "review": "Lessons from a former FBI hostage negotiator on the art of negotiation. 🎯 [Book]"
+        },
+        {
+            "category": "Debate & Intelligence",
+            "title": "Thank You for Arguing",
+            "review": "A fun and insightful guide on mastering the art of persuasion and debate. 🗣️ [Book]"
+        },
+        {
+            "category": "Debate & Intelligence",
+            "title": "The Art of Thinking Clearly",
+            "review": "Explores cognitive biases and how they affect decision-making. 🤔 [Book]"
+        },
+        {
+            "category": "Debate & Intelligence",
+            "title": "Emotional Intelligence 2.0",
+            "review": "A practical guide to understanding and improving emotional intelligence. ❤️‍🔥 [Book]"
+        },
+        {
+            "category": "CIA & Intelligence",
+            "title": "Spy the Lie",
+            "review": "Written by former CIA officers, it teaches how to detect deception. 🕵️‍♂️ [Book]"
+        },
+        {
+            "category": "CIA & Intelligence",
+            "title": "The Like Switch",
+            "review": "A former FBI agent reveals how to use psychological techniques for influence. 🔄 [Book]"
+        },
+        {
+            "category": "CIA & Intelligence",
+            "title": "The Interrogator: The Story of Hanns Scharff",
+            "review": "A biography of WWII's most skilled interrogator who got secrets without torture. 🎖️ [Book]"
+        },
+        {
+            "category": "CIA & Intelligence",
+            "title": "The CIA Manual of Trickery and Deception",
+            "review": "A fascinating look into real spy techniques used during the Cold War. 🕶️ [Book]"
+        }
+    ],
+    "manga": [
+        {
+            "title": "The Player Who Can't Level Up",
+            "review": "An interesting take on power struggles and game mechanics. 🎮 [Manga, Chapter 47]"
+        },
+        {
+            "title": "Down to Earth",
+            "review": "A cute and wholesome romantic story with a sci-fi twist. 🌠 [Manga, Chapter 107]"
+        },
+        {
+            "title": "God of Blackfield",
+            "review": "Revenge, military action, and an overpowered protagonist! 🔥 [Manga, Chapter 145]"
+        },
+        {
+            "title": "The Gamer",
+            "review": "What if life had a game interface? This manga explores it brilliantly. 🕹️ [Manga, Chapter 440]"
+        },
+        {
+            "title": "Devilish Love",
+            "review": "A mix of romance, supernatural elements, and drama. 💘 [Manga]"
+        },
+        {
+            "title": "Advanced Players of...",
+            "review": "A new take on overpowered players in a game-like world. 🎭 [Manga]"
+        },
+        {
+            "title": "Chainsaw Man",
+            "review": "Wild action, dark humor, and an unhinged protagonist. ⚡ [Manga, Chapter 40]"
+        },
+        {
+            "title": "The Time of Rebirth",
+            "review": "A reincarnation story with intense character development. 🔄 [Manga, Chapter 124]"
+        },
+        {
+            "title": "Second Life Ranker",
+            "review": "A revenge-fueled journey in a game-like world. 🎮 [Manga, Chapter 150]"
+        },
+        {
+            "title": "The Beginning After the End",
+            "review": "A reincarnation story with an OP protagonist and deep world-building. ⚔️ [Manga, Chapter 175.5]"
+        },
+        {
+            "title": "Kill the Hero",
+            "review": "A betrayal-driven revenge story in a game-like world. 🗡️ [Manga]"
+        },
+        {
+            "title": "Return of the 8th Class Magician",
+            "review": "A magician's rise to power after betrayal. 🔥 [Manga]"
+        },
+        {
+            "title": "RC Suicidal Battle God",
+            "review": "An intense battle-driven story about survival and redemption. 🛡️ [Manga]"
+        },
+        {
+            "title": "Dr. Frosta",
+            "review": "A unique blend of science, mystery, and drama. ❄️ [Manga]"
+        },
+        {
+            "title": "Supernova the Legendary",
+            "review": "A legendary warrior's journey to greatness. ⭐ [Manga]"
+        },
+        {
+            "title": "Moonlight Sculptor",
+            "review": "A VRMMORPG adventure with deep world-building. 🎨 [Manga]"
+        },
+        {
+            "title": "Tutorial Gandara",
+            "review": "A unique twist on the tutorial phase of gaming. 🎮 [Manga]"
+        },
+        {
+            "title": "Legend of the Northern Blade",
+            "review": "A martial arts epic filled with intense battles and drama. 🥋 [Manga]"
+        },
+        {
+            "title": "Chronicle of the Martial God's Return",
+            "review": "A warrior's comeback story, filled with action and revenge. ⚔️ [Manga]"
+        },
+        {
+            "title": "Solo Max Leveling",
+            "review": "One of the most hyped webtoons with an OP protagonist and epic fights. 💀 [Manga]"
+        },
+        {
+            "title": "The World After the Fall",
+            "review": "A post-apocalyptic survival journey with unique mechanics. 🌍 [Manga]"
+        },
+        {
+            "title": "Omniscient Reader's Viewpoint",
+            "review": "A fresh take on the survival genre where a novel turns into reality. 📖 [Manga]"
+        },
+        {
+            "title": "Boss in School",
+            "review": "[Rejected] A school-fighting manga with an aggressive MC. ❌"
+        }
+    ]
+}

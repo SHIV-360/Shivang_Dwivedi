@@ -1,0 +1,107 @@
+[
+    {
+        "title": "Personal Portfolio Website",
+        "technology": "HTML, CSS, JavaScript",
+        "year": "2024",
+        "description": "A personal website showcasing my projects and skills.",
+        "link": "https://shivangdwivedi.com"
+    },
+    {
+        "title": "Pong Game",
+        "technology": "Python, Turtle Graphics",
+        "year": "2022",
+        "description": "A classic two-player arcade game implemented in Python using the Turtle graphics library.",
+        "link": "https://github.com/SHIV-360/pong_game"
+    },
+    {
+        "title": "Snake Game",
+        "technology": "Python, Turtle Graphics",
+        "year": "2022",
+        "description": "A snake game where the player controls a growing snake while avoiding collisions.",
+        "link": "https://github.com/SHIV-360/Snake_Game"
+    },
+    {
+        "title": "Content-Based Recommender System",
+        "technology": "Python, Tkinter, scikit-learn, nltk, pandas, numpy",
+        "year": "2024",
+        "description": "A movie recommender system that suggests similar movies based on metadata using cosine similarity.",
+        "link": "https://github.com/SHIV-360/Content_Based_Movie_Recommendation_System"
+    },    
+    {
+        "title": "Advanced Text Editor with AI-Powered Word Prediction",
+        "technology": "Python, Tkinter, TensorFlow, numpy, regex, python-docx",
+        "year": "2024",
+        "description": "A modern text editor with AI-based word prediction, rich text formatting, and theme customization.",
+        "link": "https://github.com/SHIV-360/Text_Editor_with_Word_Prediction"
+    },
+    {
+        "title": "Hindi Character Recognition System",
+        "technology": "Python, TensorFlow, Keras, OpenCV, Pillow, NumPy, Matplotlib, Tkinter",
+        "year": "2024",
+        "description": "A deep learning-based system using CNN for recognizing handwritten Hindi characters with Hinglish pronunciation support.",
+        "link": "https://github.com/SHIV-360/HINDI_CHARACTER_RECOGNITION"
+    },    
+    {
+        "title": "HOLD-MA-KEES Password Manager",
+        "technology": "Python, Tkinter, Pyperclip",
+        "year": "2023",
+        "description": "A simple password manager that generates and stores secure passwords alongside website and email/username information.",
+        "link": "https://github.com/SHIV-360/password_manager"
+    },    
+    {
+        "title": "Speed Typing Trainer",
+        "technology": "Python, Tkinter, Pandas",
+        "year": "2024",
+        "description": "A typing speed trainer that helps users improve their typing accuracy and speed through difficulty-based challenges, time limits, and performance tracking.",
+        "link": "https://github.com/SHIV-360/Typing_Asist"
+    },    
+    {
+        "title": "Tor IP Changer",
+        "technology": "Python, Tor, Stem, Requests, Linux",
+        "year": "2024",
+        "description": "A script that changes the public IP address every 10 seconds using the Tor network by sending a signal to request a new IP.",
+        "link": "https://github.com/SHIV-360/AUTO_TOR_from_SCRATCH"
+    },    
+    {
+        "title": "Spotify Playlist Recommendation App",
+        "technology": "Python, Tkinter, Spotipy, scikit-learn, Pandas",
+        "year": "2024",
+        "description": "An application that authenticates with the Spotify API to fetch playlists and generate personalized song recommendations based on user playlists.",
+        "link": "https://github.com/SHIV-360/MUSIC_RECOMMENDATION_SPOTIFYAPI"
+    },    
+    {
+        "title": "Stone Paper Scissors Simulation",
+        "technology": "Python, Turtle Graphics",
+        "year": "2023",
+        "description": "A visual simulation of the Stone, Paper, Scissors game using Turtle graphics, showcasing object interactions, movement, and transformations in a bounded environment.",
+        "link": "https://github.com/SHIV-360/Stone_Paper_Scissors_simulation"
+    },    
+    {
+        "title": "Barcode and QR Code Generator with Tkinter",
+        "technology": "Python, Tkinter, Pillow, pyzbar, qrcode",
+        "year": "2024",
+        "description": "A Python application with a Tkinter-based GUI for generating, customizing, and scanning QR codes and barcodes. Supports color customization and image saving.",
+        "link": "https://github.com/SHIV-360/Barcode-and-QRcode-Genrator-"
+    },    
+    {
+        "title": "Bengali Sentiment Analysis",
+        "technology": "Python, Tkinter, scikit-learn, numpy, pandas, nltk, re",
+        "year": "2023",
+        "description": "A sentiment analysis tool for Bengali text that preprocesses data, removes stop words, and uses a trained machine learning model to predict sentiment. The application includes a Tkinter-based GUI for user interaction.",
+        "link": "https://github.com/SHIV-360/SENTIMENT_ANALYSIS-for-BENGALI-LANGUAGE"
+    },    
+    {
+        "title": "AUTO Email Spam Checker",
+        "technology": "Python, IMAP, scikit-learn, Tkinter, numpy, pandas, threading",
+        "year": "2024",
+        "description": "A Python application that continuously monitors a Gmail inbox, fetches emails, and classifies them as spam or ham using a machine learning model. Spam emails are moved to the Spam folder, and their subjects are logged.",
+        "link": "https://github.com/SHIV-360/AUTO_SPAM_CHECKER"
+    },
+    {
+        "title": "LoFi-Mix Audio Processor",
+        "technology": "Python, Librosa, Soundfile, NumPy, SciPy",
+        "year": "2023",
+        "description": "A Python script that processes audio files to generate a final mix with lo-fi, vintage effects, rain sounds, and a piano overlay. It dynamically extends the mix duration while ensuring smooth transitions with fade-in and fade-out effects.",
+        "link": "https://github.com/SHIV-360"
+    }    
+]

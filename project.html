@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Shivang Dwivedi</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #c0c0c0;
+            color: black;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .window {
+            background-color: #d4d0c8;
+            border: 2px solid black;
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 10px;
+            box-shadow: 4px 4px 0px gray;
+            text-align: center;
+        }
+
+        .title-bar {
+            background: navy;
+            color: white;
+            padding: 8px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .projects-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .project-card {
+            background: #ece9d8;
+            border: 2px solid black;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 3px 3px 6px gray;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .project-info {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .project-link {
+            display: inline-block;
+            padding: 5px 10px;
+            background: navy;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #d4d0c8;
+            border: 2px solid black;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px gray;
+            font-size: 14px;
+        }
+
+        .button:active {
+            box-shadow: none;
+            transform: translate(2px, 2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="window">
+        <div class="title-bar">Projects</div>
+
+        <div class="projects-container" id="projects-container"></div>
+
+        <div class="button-container">
+            <a href="index.html">
+                <div class="button">Back to HomePage</div>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        async function loadProjects() {
+            try {
+                const response = await fetch('projects.json');
+                const projects = await response.json();
+                const container = document.getElementById('projects-container');
+                
+                projects.forEach(project => {
+                    const projectCard = document.createElement('div');
+                    projectCard.classList.add('project-card');
+
+                    projectCard.innerHTML = `
+                        <div class="project-title">${project.title}</div>
+                        <div class="project-info"><strong>Technology:</strong> ${project.technology}</div>
+                        <div class="project-info"><strong>Year:</strong> ${project.year}</div>
+                        <div class="project-info">${project.description}</div>
+                        <a href="${project.link}" class="project-link" target="_blank">View Project</a>
+                    `;
+
+                    container.appendChild(projectCard);
+                });
+            } catch (error) {
+                console.error('Error loading projects:', error);
+            }
+        }
+
+        loadProjects();
+    </script>
+
+</body>
+</html>

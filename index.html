@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chat with Shivang</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'MS Sans Serif', sans-serif;
+      background-color: #008080;
+      margin: 0;
+      overflow: hidden;
+    }
+    /* Social Icons Container */
+    .social-container {
+      position: fixed;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1000;
+    }
+    .social-container ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .example-2 {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+    }
+    .example-2 .icon-content {
+      position: relative;
+    }
+    .example-2 .icon-content .tooltip {
+      position: absolute;
+      top: 50%;
+      left: 120%; /* Position to the right of the icon */
+      transform: translateY(-50%);
+      background-color: #D44638;
+      color: #fff;
+      padding: 6px 10px;
+      border-radius: 5px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+    .example-2 .icon-content:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+      left: 105%;
+      top: 6px;
+    }
+    .example-2 .icon-content a {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      border-radius: 20%;
+      color: #4d4d4d;
+      background-color: #fff;
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+    }
+    .example-2 .icon-content a:hover {
+      box-shadow: 3px 2px 45px 0px rgba(0, 0, 0, 0.5);
+      color: white;
+    }
+    .example-2 .icon-content a svg {
+      position: relative;
+      z-index: 1;
+      width: 30px;
+      height: 30px;
+    }
+    .example-2 .icon-content a .filled {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-color: #000;
+      transition: all 0.3s ease-in-out;
+      z-index: 0;
+    }
+    .example-2 .icon-content a:hover .filled {
+      height: 100%;
+    }
+    /* Social network specific colors */
+    .example-2 .icon-content a[data-social="github"] .filled,
+    .example-2 .icon-content a[data-social="github"] ~ .tooltip {
+      background-color: #333;
+    }
+    .example-2 .icon-content a[data-social="spotify"] .filled,
+    .example-2 .icon-content a[data-social="spotify"] ~ .tooltip {
+      background-color: #1db954;
+    }
+    .example-2 .icon-content a[data-social="gmail"] .filled,
+    .example-2 .icon-content a[data-social="gmail"] ~ .tooltip {
+      background-color: #D44638;
+    }
+    .example-2 .icon-content a[data-social="linkedin"] .filled,
+    .example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
+      background-color: #0077B5;
+    }
+
+    /* Chat Window Styles */
+    .chat-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      padding-left: 40px; /* Leave room so chat window doesn't touch social icons */
+      box-sizing: border-box;
+    }
+    .window {
+      width: 90%;
+      height: 90%;
+      background: silver;
+      border: 3px solid black;
+      box-shadow: 8px 8px 0px #404040;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      z-index: 10;
+    }
+    .title-bar {
+      background: navy;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.5em;
+    }
+    .title-bar button {
+      background: silver;
+      border: 1px solid black;
+      width: 24px;
+      height: 24px;
+      text-align: center;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .chat-box {
+      flex-grow: 1;
+      background: white;
+      padding: 20px;
+      font-size: 1.2em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      border: inset 3px gray;
+      overflow-y: auto;
+    }
+    .message, .user-message {
+      background: #c0c0c0;
+      padding: 15px;
+      border: 2px solid black;
+      border-radius: 5px;
+      max-width: 60%;
+      margin-bottom: 10px;
+      display: none;
+    }
+    .user-message {
+      background: lightblue;
+      align-self: flex-end;
+      text-align: right;
+    }
+    .response-box {
+      background: white;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      border-top: 3px solid gray;
+    }
+    .response-box button {
+      background: lightgray;
+      border: 2px solid black;
+      padding: 10px 15px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      font-weight: bold;
+    }
+    /* Time in Words Section at the Bottom */
+    #time-section {
+      position: fixed;
+      top: 15px;              /* Position 10px from the bottom */
+      right: -70px;                 /* Center horizontally */
+      transform: translateX(-50%);
+      text-align: right;
+      padding: 10px 10px;
+      border-radius: 10px;
+      z-index: 1000;
+    }
+
+    /* Increase the font size of the time text */
+    #timeInWords {
+      font-size: 1.3em; /* Increase as needed */
+      color: white;
+    }
+
+    /* Fix for the hour word styling */
+    .hour {
+      color: #ffcc00; /* Complementary color for the hour word */
+    }
+
+    .typing {
+      font-style: italic;
+      color: gray;
+      padding: 5px 10px;
+      background: #f0f0f0;
+      border: 1px solid gray;
+      border-radius: 5px;
+      margin-top: 10px;
+      align-self: flex-start;
+      display: none;
+    }
+    a {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+    a:hover {
+      color: darkblue;
+    }
+  </style>
+</head>
+<body>
+  <!-- Social Icons on the Left Edge -->
+  <div class="social-container">
+    <ul class="example-2">
+      <!-- GitHub Icon -->
+      <li class="icon-content">
+        <a href="https://github.com/SHIV-360/" aria-label="GitHub" data-social="github" target="_blank" rel="noopener noreferrer">
+          <div class="filled"></div>
+          <svg viewBox="0 0 16 16" version="1.1" aria-hidden="true">
+            <path fill="currentColor" fill-rule="evenodd"
+              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01
+              1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+              0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.59 7.59 0 012-.27c.68 0
+              1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15
+              0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013
+              8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+            </path>
+          </svg>
+        </a>
+        <div class="tooltip">GitHub</div>
+      </li>
+      <!-- Spotify Icon -->
+      <li class="icon-content">
+        <a href="https://open.spotify.com/user/czaep85onxxkyl0lz8gf3pmvc?si=4fbc99c6f96c43ff" aria-label="Spotify" data-social="spotify" target="_blank" rel="noopener noreferrer">
+          <div class="filled"></div>
+          <svg viewBox="0 0 100 100">
+            <path d="M50,4C24.7,4,4,24.7,4,50s20.6,46,46,46s46-20.6,46-46S75.4,4,50,4z M71.6,71.5c0,0,0,0.1-0.1,0.1
+              c-0.8,1.2-2,1.8-3.2,1.8c-0.7,0-1.4-0.2-2-0.6c-10.2-6.3-23.3-7.7-38.8-4.1c-2.1,0.6-4-0.9-4.5-2.7
+              c-0.6-2.3,0.9-4.1,2.7-4.6c17.7-4,32.6-2.3,44.4,5c0.9,0.4,1.5,1,1.8,1.9C72.2,69.3,72.1,70.5,71.6,71.5z
+              M76.9,59.3L76.9,59.3c-0.8,1.1-1.9,1.9-3.2,2.1c-0.2,0-0.5,0.1-0.7,0.1c-0.8,0-1.6-0.3-2.3-0.7
+              c-12-7.3-30.1-9.4-43.9-5c-2.5,0.6-5-0.7-5.6-3c-0.6-2.5,0.7-4.9,3-5.5c16.5-5,37.2-2.5,51.4,6.2
+              c0.8,0.4,1.5,1.3,1.8,2.5C77.9,57,77.6,58.3,76.9,59.3z M83.2,45.6c-1,1.4-2.7,2.1-4.4,2.1
+              c-0.9,0-1.9-0.2-2.7-0.7c0,0,0,0,0,0c-13.9-8.3-37.8-9.3-51.4-5.1c-2.7,0.8-5.5-0.7-6.4-3.3
+              c-0.8-2.7,0.7-5.6,3.3-6.4c16.2-4.8,43-3.8,59.8,6.2C83.8,39.6,84.7,42.9,83.2,45.6z" fill="currentColor"></path>
+          </svg>
+        </a>
+        <div class="tooltip">Spotify</div>
+      </li>
+      <!-- Gmail Icon -->
+      <li class="icon-content">
+        <a href="https://mail.google.com/" aria-label="Gmail" data-social="gmail" target="_blank" rel="noopener noreferrer">
+          <div class="filled"></div>
+          <svg viewBox="0 0 512 512">
+            <path d="M502.3 190.8L327.4 338.2c-20.6 17.7-50.5 17.7-71.1 0L9.7 190.8
+              C3.9 186.9 0 180.8 0 174.3V80c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v94.3c0 6.5-3.9
+              12.6-9.7 16.5z" fill="currentColor"></path>
+            <path d="M480 128H32c-17.7 0-32 14.3-32 32v240c0 17.7 14.3 32 32
+              32h448c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32zM464 416H48V176l208
+              142.9 208-142.9v240z" fill="currentColor"></path>
+          </svg>
+        </a>
+        <div class="tooltip">shivangd262@gmail.com</div>
+      </li>
+      <!-- LinkedIn Icon -->
+      <li class="icon-content">
+        <a href="https://www.linkedin.com/in/shivang-dwivedi-36o/" aria-label="LinkedIn" data-social="linkedin" target="_blank" rel="noopener noreferrer">
+          <div class="filled"></div>
+          <svg viewBox="0 0 448 512">
+            <path d="M100.28 448H7.4V148.9h92.88zm-46.44-341C24.16 107 0
+              82.84 0 53.86A53.77 53.77 0 0153.84 0c29.88 0 53.84 24.2 53.84 53.86
+              0 28.98-24 53.14-53.84 53.14zM447.9 448h-92.68V302.4c0-34.7-12.4-58.4-43.36-58.4-23.64
+              0-37.76 15.92-44 31.3-2.28 5.56-2.84 13.32-2.84 21.16V448h-92.7s1.24-241.1 0-266.1h92.7v37.7c12.32-19
+              34.36-46 83.64-46 61.14 0 107 39.88 107 125.44z" fill="currentColor"></path>
+          </svg>
+        </a>
+        <div class="tooltip">LinkedIn</div>
+      </li>
+    </ul>
+  </div>
+  <!-- Chat Window Container -->
+  <div class="chat-wrapper">
+    <div class="window">
+      <div class="title-bar">
+        <span>Chatbox</span>
+        <button onclick="closeWindow()">*</button>
+      </div>
+      <div class="chat-box" id="chat-box">
+        <p class="typing" id="initial-typing">Shivang is typing...</p>
+      </div>
+      <div class="response-box" id="first-response-box">
+        <button onclick="sendResponse('Tell me about yourself')">Tell me about yourself</button>
+        <button onclick="sendResponse('What can this website do?')">What can this website do?</button>
+        <button onclick="sendResponse('Goodbye')">Goodbye</button>
+      </div>
+      <div class="response-box" id="second-response-box" style="display: none;">
+        <button onclick="sendResponse('About you')">About you</button>
+        <button onclick="sendResponse('Your Project')">Your Project</button>
+        <button onclick="sendResponse('Your friends')">Your friends</button>
+        <button onclick="sendResponse('Books you read')">Books you read</button>
+        <button onclick="sendResponse('Gallery')">Gallery</button>
+      </div>
+      <!-- Add Time in Words Section Below -->
+    </div>
+  </div>
+
+  <div id="time-section">
+    <h1 id="timeInWords"></h1>
+  </div>
+
+  <script>
+    let chatHistory = sessionStorage.getItem('chatHistory') ? JSON.parse(sessionStorage.getItem('chatHistory')) : [];
+    let typingDelay = 2500;
+
+    // Load saved chat history
+    window.onload = () => {
+      const chatBox = document.getElementById('chat-box');
+      chatHistory.forEach((message) => {
+        const messageElement = document.createElement('p');
+        messageElement.classList.add(message.type);
+        messageElement.innerHTML = message.text;
+        chatBox.appendChild(messageElement);
+        messageElement.style.display = 'block';
+        chatBox.scrollTop = chatBox.scrollHeight;
+      });
+
+      if (chatHistory.length === 0) {
+        setTimeout(() => {
+          document.getElementById('initial-typing').style.display = 'block';
+        }, typingDelay);
+
+        setTimeout(() => {
+          document.getElementById('initial-typing').style.display = 'none';
+          const initialMessage = document.createElement('p');
+          initialMessage.classList.add('message');
+          initialMessage.textContent = "Hi, I'm Shivang. Welcome to my website! What do you want to know?";
+          chatBox.appendChild(initialMessage);
+          initialMessage.style.display = 'block';
+          chatBox.scrollTop = chatBox.scrollHeight;
+        }, typingDelay + 3500);
+      }
+    };
+
+    function closeWindow() {
+      alert("Its a cool window pls Dont close it!");
+    }
+
+    function sendResponse(userText) {
+      const chatBox = document.getElementById('chat-box');
+
+      // Add user message
+      const userMessage = document.createElement('p');
+      userMessage.classList.add('user-message');
+      userMessage.textContent = userText;
+      chatBox.appendChild(userMessage);
+      userMessage.style.display = 'block';
+      chatBox.scrollTop = chatBox.scrollHeight;
+
+      // Save user message in history
+      chatHistory.push({ type: 'user-message', text: userText });
+      sessionStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+
+      const typingMessage = document.createElement('p');
+      typingMessage.classList.add('typing');
+      typingMessage.textContent = "Shivang is typing...";
+      chatBox.appendChild(typingMessage);
+
+      setTimeout(() => {
+        typingMessage.style.display = 'block';
+        chatBox.scrollTop = chatBox.scrollHeight;
+      }, typingDelay);
+
+      setTimeout(() => {
+        typingMessage.style.display = 'none';
+
+        const botMessage = document.createElement('p');
+        botMessage.classList.add('message');
+
+        // Handle different responses
+        let botText = '';
+        if (userText === "Tell me about yourself") {
+          botText = 'I am Shivang, a passionate developer and this is my website! It was part of my <a href="https://www.linkedin.com/in/shivang-dwivedi-36o/" target="_self">#51DaysofProject</a>. Know more about me at this <a href="about_me.html" target="_self">link</a>';
+        } else if (userText === "What can this website do?") {
+          botText = "This website can tell you about me, my Project, my friends, the books and manga I read, and my gallery. What do you want to know?";
+          toggleOptions();
+        } else if (userText === "Goodbye") {
+          botText = "Goodbye! Have a great day!";
+        } else if (userText === "About you") {
+          botText = 'Check out my details at this <a href="about_me.html" target="_self">link</a>';
+        } else if (userText === "Your Project") {
+          botText = 'Discover my Project at this <a href="project.html" target="_self">link</a>';
+        } else if (userText === "Your friends") {
+          botText = 'Meet my friends at this <a href="frnds.html" target="_self">link</a>';
+        } else if (userText === "Books you read") {
+          botText = 'See my book list at this <a href="books.html" target="_self">link</a>';
+        } else if (userText === "Gallery") {
+          botText = 'View my gallery at this <a href="pics.html" target="_self">link</a>';
+        }
+
+        botMessage.innerHTML = botText;
+        chatBox.appendChild(botMessage);
+        botMessage.style.display = 'block';
+        chatBox.scrollTop = chatBox.scrollHeight;
+
+        // Save bot message in history
+        chatHistory.push({ type: 'message', text: botText });
+        sessionStorage.setItem('chatHistory', JSON.stringify(chatHistory));
+      }, typingDelay + 2000);
+    }
+
+    function toggleOptions() {
+      document.getElementById('first-response-box').style.display = 'none';
+      document.getElementById('second-response-box').style.display = 'flex';
+    }
+
+  
+    function numberToWords(num) {
+      const words = [
+        'Zero', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine',
+        'Ten', 'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen',
+        'Twenty', 'Twenty-One', 'Twenty-Two', 'Twenty-Three', 'Twenty-Four', 'Twenty-Five', 'Twenty-Six', 'Twenty-Seven',
+        'Twenty-Eight', 'Twenty-Nine', 'Thirty', 'Thirty-One', 'Thirty-Two', 'Thirty-Three', 'Thirty-Four', 'Thirty-Five',
+        'Thirty-Six', 'Thirty-Seven', 'Thirty-Eight', 'Thirty-Nine', 'Forty', 'Forty-One', 'Forty-Two', 'Forty-Three',
+        'Forty-Four', 'Forty-Five', 'Forty-Six', 'Forty-Seven', 'Forty-Eight', 'Forty-Nine', 'Fifty', 'Fifty-One',
+        'Fifty-Two', 'Fifty-Three', 'Fifty-Four', 'Fifty-Five', 'Fifty-Six', 'Fifty-Seven', 'Fifty-Eight', 'Fifty-Nine'
+    ];
+
+      return words[num];
+    }
+
+    function timeInWords() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const hourNumber = hours % 12 || 12; // Adjust for 12-hour format
+      // Wrap the hour word in a span so it gets the complementary color:
+      const hourWord = `<span class="hour">${numberToWords(hourNumber)}</span>`;
+      const minuteWord = numberToWords(minutes);
+
+      let timeString = "";
+
+      if (minutes === 0) {
+        timeString = `It's exactly ${hourWord} o'clock`;
+      } else if (minutes <= 30) {
+        timeString = `It's ${minuteWord} past ${hourWord} o'clock`;
+      } else {
+        const nextHourNumber = (hours + 1) % 12 || 12;
+        const nextHourWord = `<span class="hour">${numberToWords(nextHourNumber)}</span>`;
+        const minutesTo = 60 - minutes;
+        timeString = `It's ${numberToWords(minutesTo)} minutes to ${nextHourWord} o'clock`;
+      }
+
+      document.getElementById('timeInWords').innerHTML = timeString;
+    }
+
+    setInterval(timeInWords, 1000); // Update every second
+    timeInWords(); // Initial call to display time immediately
+  </script>
+</body>
+</html>

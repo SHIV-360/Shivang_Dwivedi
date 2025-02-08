@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shivang Dwivedi - Resume</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #c0c0c0;
+            color: black;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .window {
+            background-color: #d4d0c8;
+            border: 2px solid black;
+            width: 800px;
+            margin: auto;
+            padding: 10px;
+            box-shadow: 4px 4px 0px gray;
+            text-align: center; /* Centering content */
+        }
+
+        .title-bar {
+            background: navy;
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .personal-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: 250px;
+            border: 2px solid black;
+            border-radius: 10px;
+            box-shadow: 2px 2px 4px gray;
+        }
+
+        .section {
+            text-align: left;
+            margin: 10px 0;
+            padding: 10px;
+            border: 2px solid black;
+            background-color: #ece9d8;
+        }
+
+        .section-title {
+            font-weight: bold;
+            background: navy;
+            color: white;
+            padding: 3px;
+            margin: -10px -10px 10px -10px;
+            text-align: center;
+        }
+
+        .sub-section {
+            margin-top: 10px;
+            padding-left: 10px;
+            border-left: 5px solid black;
+        }
+
+        .content {
+            padding: 5px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center; /* Centers the buttons horizontally */
+            gap: 15px; /* Spacing between buttons */
+            margin-top: 15px;
+            flex-wrap: wrap; /* Ensure buttons wrap to the next line if the screen is small */
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 15px;
+            background: #d4d0c8;
+            border: 2px solid black;
+            font-family: 'Arial', sans-serif;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px gray;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .button:hover {
+            background: #bab8b0;
+        }
+
+        .button:active {
+            box-shadow: none;
+            transform: translate(2px, 2px);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="window">
+        <div class="title-bar">Resume</div>
+
+        
+        <div class="section">
+            <div class="section-title">Personal Information</div>
+            <div class="personal-info">
+                <div>
+                    <p><strong>Name:</strong> Shivang Dwivedi</p>
+                    <p><strong>Location:</strong> Jajpur Road, Odisha, India</p>
+                    <p><strong>Email:</strong> shivangd262@gmail.com</p>
+                    <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/shivang-dwivedi-36o/" target="_blank">Shivang Dwivedi</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/SHIV-360" target="_blank">SHIV-360</a></p>
+                    <p><strong>Phone:</strong> +91 7357617705</p>
+                </div>
+                <div class="image-container">
+                    <img src="gallary/pic.jpg" alt="Shivang Dwivedi">
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Education</div>
+            <div class="sub-section">
+                <p><strong>Bachelor of Technology (CSE)</strong></p>
+                <p>VIT Bhopal University, Bhopal</p>
+                <p>CGPA: 9.01/10 | Oct 2022 - Ongoing (2026)</p>
+            </div>
+            <div class="sub-section">
+                <p><strong>Class XII</strong></p>
+                <p>Lord Buddha Public School, Kota</p>
+                <p>Percentage: 81.8% | 2020 - July 2022</p>
+            </div>
+            <div class="sub-section">
+                <p><strong>Class X</strong></p>
+                <p>LBS Convent School, Kota</p>
+                <p>Percentage: 89.8% | July 2020</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Technical Skills</div>
+            <div class="content">
+                <ul>
+                    <li>Programming: C, C++, Java, Python, SQL, Bash</li>
+                    <li>Technologies: Linux, Git, Shell Scripting</li>
+                    <li>Concepts: Data Structures & Algorithms, OOP, DBMS, OS, Networking</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Certifications</div>
+            <div class="content">
+                <ul>
+                    <li>Python (Vityarthi, VIT Bhopal University)</li>
+                    <li>AI and ML Basics (Vityarthi, VIT Bhopal)</li>
+                    <li>Cloud Computing (Swayam NPTEL, Silver Medal)</li>
+                    <li>MATLAB Simulink and Onramp</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Projects</div>
+            <div class="sub-section">
+                <p><strong>Bengali Sentiment Analysis:</strong></p>
+                <p>Developed a sentiment analysis model to promote the Bengali language.</p>
+                <p><strong>Technologies:</strong> Python, NLTK, Pandas, sklearn, Tkinter</p>
+                <p><strong>Role:</strong> Data split, model training, tuning, and UI</p>
+                <p><strong>GitHub:</strong><a href="https://github.com/SHIV-360/SENTIMENT_ANALYSIS-for-BENGALI-LANGUAGE" target="_blank">here</a></p>
+            </div>
+            <div class="sub-section">
+                <p><strong>Game Simulations:</strong></p>
+                <p>Developed multiple interactive games using Python.</p>
+                <p><strong>Games:</strong> Snake Game, Ping Pong, Stone Paper Scissors simulation</p>
+                <p><strong>Technologies:</strong> Python, Turtle Library</p>
+                <p><strong>GitHub:</strong><a href="https://github.com/SHIV-360" target="_blank">here</a></p>
+            </div>
+            <div class="sub-section">
+                <p><strong>Tor Auto IP Changer:</strong></p>
+                <p>Script changes your public IP address every 10 seconds using the Tor network.</p>
+                <p><strong>Technologies:</strong> Python, Linux, Tor, Browser config</p>
+                <p><strong>GitHub:</strong><a href="https://github.com/SHIV-360/AUTO_TOR_from_SCRATCH" target="_blank">here</a></p>
+            </div>
+            <div class="sub-section">
+                <p><strong>More projects available <a href="project.html">here</a></strong></p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Leadership & Responsibilities</div>
+            <div class="content">
+                <ul>
+                    <li>Co-lead in Tech Department, NULL Cyber Security Chapter</li>
+                    <li>Core Member, Electric Vehicle Club</li>
+                    <li>Core Member, Hostel Committee</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">Achievements</div>
+            <div class="content">
+                <ul>
+                    <li>Geek for Geek University Rank: 2435/8000+</li>
+                    <li>Solved 40+ DSA problems</li>
+                    <li>Selected for GS Summer of Code 2024 & Extended Program</li>
+                    <li>Hacktoberfest 2024 Participant</li>
+                    <li>Silver Medal in Science and Maths Olympiad (3 times)</li>
+                    <li>First Prize in Interschool Debate Competitions (2 times)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="button-container">
+            <a href="resume.pdf" download>
+                <div class="button">Download Resume</div>
+            </a>
+            <a href="index.html">
+                <div class="button">Back to homePage</div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Manga - Shivang's Collection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #c0c0c0;
+            color: black;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            background-color: #d4d0c8;
+            border: 2px solid black;
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+            padding: 10px;
+            box-shadow: 4px 4px 0px gray;
+        }
+
+        .header {
+            background: navy;
+            color: white;
+            padding: 8px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .dropdown {
+            width: 100%;
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        .item {
+            background: #ece9d8;
+            border: 2px solid black;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px gray;
+            margin-top: 5px;
+            text-align: left;
+            transition: background 0.2s ease-in-out;
+        }
+
+        .item:hover {
+            background: #ddd;
+        }
+
+        .content {
+            display: none;
+            padding: 10px;
+            background: #d4d0c8;
+            border-left: 3px solid navy;
+            margin-top: 5px;
+            box-shadow: 2px 2px 0px gray;
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background: #d4d0c8;
+            border: 2px solid black;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px gray;
+            margin-top: 10px;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body onload="loadData()">
+
+    <div class="container">
+        <div class="header">📚 Books & Manga</div>
+        <div id="list" class="dropdown"></div>
+        <a href="index.html" class="back-button">⬅ Back</a>
+    </div>
+
+    <script>
+        async function loadData() {
+            try {
+                let response = await fetch("books_manga.json");
+                let data = await response.json();
+                let container = document.getElementById("list");
+
+                function createItem(title, review) {
+                    let item = document.createElement("div");
+                    item.className = "item";
+                    item.innerHTML = `📖 <strong>${title}</strong>`;
+
+                    let content = document.createElement("div");
+                    content.className = "content";
+                    content.innerHTML = `<p>${review}</p>`;
+
+                    item.addEventListener("click", () => {
+                        let isVisible = content.style.display === "block";
+                        document.querySelectorAll(".content").forEach(c => c.style.display = "none");
+                        content.style.display = isVisible ? "none" : "block";
+                    });
+
+                    container.appendChild(item);
+                    container.appendChild(content);
+                }
+
+                data.books.forEach(book => createItem(book.title, book.review));
+                data.manga.forEach(manga => createItem(manga.title, manga.review));
+            } catch (error) {
+                console.error("Error loading JSON:", error);
+            }
+        }
+    </script>
+
+</body>
+</html>

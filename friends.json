@@ -1,0 +1,94 @@
+{
+    "friends": [
+        {
+            "category": "Sub-Junior",
+            "name": "Rahul Kamal",
+            "quote": "He was a charming guy, we used to finish his tiffin in less than 3 sec 😆🍱",
+            "image": "gallary/subjunior1.jpg"
+        },
+        {
+            "category": "Sub-Junior",
+            "name": "Pratyush",
+            "quote": "My best friend, to save my ass he took blame on his head 🤝🔥",
+            "image": "gallary/subjunior1.jpg"
+        },
+        {
+            "category": "Sub-Junior",
+            "name": "Subhashree",
+            "quote": "Only girl who matched my frequency back then 📻💫",
+            "image": "gallary/subjunior1.jpg"
+        },
+        {
+            "category": "Sub-Junior",
+            "name": "Shradha",
+            "quote": "Every class has that one girl selected for assembly prayers or function day singing, she was the one 🎤🎶",
+            "image": "gallary/subjunior1.jpg"
+        },
+        {
+            "category": "Sub-Junior",
+            "name": "Subrat Malla",
+            "quote": "The artist of the class, he could draw epic things with no sweat ✏️🎨",
+            "image": "gallary/subjunior1.jpg"
+        },
+        {
+            "category": "Sub-Junior",
+            "name": "Swaraj, Swadhin",
+            "quote": "The Non-Identical twins, good memories and the same enemy 🤜🤛😆",
+            "image": "gallary/subjunior1.jpg"
+        },
+        {
+            "category": "Senior",
+            "name": "Srijan",
+            "quote": "He was intelligent and hardworking, unlike me 😂📚",
+            "image": "gallary/senior1.jpg"
+        },
+        {
+            "category": "Senior",
+            "name": "Kashish",
+            "quote": "One Line - Beauty and Brain 😍🧠",
+            "image": "gallary/senior1.jpg"
+        },
+        {
+            "category": "Undergrad",
+            "name": "Om, Arihant",
+            "quote": "Always came prepared before exams, still acts like they knew nothing 📖😏",
+            "image": "gallary/senior3.jpg"
+        },
+        {
+            "category": "Undergrad",
+            "name": "Amar",
+            "quote": "Always chill, always late, has his priorities straight – taking classes is not one of them 😆📆",
+            "image": "gallary/undergrad1.jpg"
+        },
+        {
+            "category": "Undergrad",
+            "name": "Arfam, Aditya",
+            "quote": "Like soda and mentos – explosive together! 🧨🥤",
+            "image": "gallary/undergrad1.jpg"
+        },
+        {
+            "category": "Undergrad",
+            "name": "Ashu Bhai",
+            "quote": "Informer of our group, from spicy stories to event leaks 🔥📢",
+            "image": "gallary/undergrad1.jpg"
+        },
+        {
+            "category": "Undergrad",
+            "name": "Vedika, Angali, Omika, Riya, Devika",
+            "quote": "This list is big. I cannot use their names separately – my safety concern 😅🚨",
+            "image": "gallary/undergrad1.jpg"
+        },
+        {
+            "category": "Undergrad",
+            "name": "Abhik",
+            "quote": "Bangladeshi migrant",
+            "image": "gallary/undergrad3.jpg"
+        },
+        {
+            "category": "Undergrad",
+            "name": "Vasudha",
+            "quote": "sarcasm, roasts everyone, delhii gurl 🔥",
+            "image": "gallary/undergrad4.jpg"
+        }
+    ]
+}
