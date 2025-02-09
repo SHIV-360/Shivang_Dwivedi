@@ -12,6 +12,7 @@
       margin: 0;
       overflow: hidden;
     }
+
     /* Social Icons Container */
     .social-container {
       position: fixed;
@@ -20,20 +21,24 @@
       transform: translateY(-50%);
       z-index: 1000;
     }
+
     .social-container ul {
       list-style: none;
       padding: 0;
       margin: 0;
     }
+
     .example-2 {
       display: flex;
       flex-direction: column;
       gap: 10px;
       align-items: center;
     }
+
     .example-2 .icon-content {
       position: relative;
     }
+
     .example-2 .icon-content .tooltip {
       position: absolute;
       top: 50%;
@@ -49,12 +54,14 @@
       font-size: 14px;
       transition: all 0.3s ease;
     }
+
     .example-2 .icon-content:hover .tooltip {
       opacity: 1;
       visibility: visible;
       left: 105%;
       top: 6px;
     }
+
     .example-2 .icon-content a {
       position: relative;
       overflow: hidden;
@@ -69,16 +76,19 @@
       transition: all 0.3s ease-in-out;
       text-decoration: none;
     }
+
     .example-2 .icon-content a:hover {
       box-shadow: 3px 2px 45px 0px rgba(0, 0, 0, 0.5);
       color: white;
     }
+
     .example-2 .icon-content a svg {
       position: relative;
       z-index: 1;
       width: 30px;
       height: 30px;
     }
+
     .example-2 .icon-content a .filled {
       position: absolute;
       bottom: 0;
@@ -89,22 +99,27 @@
       transition: all 0.3s ease-in-out;
       z-index: 0;
     }
+
     .example-2 .icon-content a:hover .filled {
       height: 100%;
     }
+
     /* Social network specific colors */
     .example-2 .icon-content a[data-social="github"] .filled,
     .example-2 .icon-content a[data-social="github"] ~ .tooltip {
       background-color: #333;
     }
+
     .example-2 .icon-content a[data-social="spotify"] .filled,
     .example-2 .icon-content a[data-social="spotify"] ~ .tooltip {
       background-color: #1db954;
     }
+
     .example-2 .icon-content a[data-social="gmail"] .filled,
     .example-2 .icon-content a[data-social="gmail"] ~ .tooltip {
       background-color: #D44638;
     }
+
     .example-2 .icon-content a[data-social="linkedin"] .filled,
     .example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
       background-color: #0077B5;
@@ -119,6 +134,7 @@
       padding-left: 40px; /* Leave room so chat window doesn't touch social icons */
       box-sizing: border-box;
     }
+
     .window {
       width: 90%;
       height: 90%;
@@ -130,6 +146,7 @@
       position: relative;
       z-index: 10;
     }
+
     .title-bar {
       background: navy;
       color: white;
@@ -140,6 +157,7 @@
       align-items: center;
       font-size: 1.5em;
     }
+
     .title-bar button {
       background: silver;
       border: 1px solid black;
@@ -150,6 +168,7 @@
       cursor: pointer;
       font-size: 1em;
     }
+
     .chat-box {
       flex-grow: 1;
       background: white;
@@ -162,6 +181,7 @@
       border: inset 3px gray;
       overflow-y: auto;
     }
+
     .message, .user-message {
       background: #c0c0c0;
       padding: 15px;
@@ -171,11 +191,13 @@
       margin-bottom: 10px;
       display: none;
     }
+
     .user-message {
       background: lightblue;
       align-self: flex-end;
       text-align: right;
     }
+
     .response-box {
       background: white;
       padding: 10px;
@@ -183,6 +205,7 @@
       justify-content: center;
       border-top: 3px solid gray;
     }
+
     .response-box button {
       background: lightgray;
       border: 2px solid black;
@@ -192,11 +215,12 @@
       font-size: 1em;
       font-weight: bold;
     }
+
     /* Time in Words Section at the Bottom */
     #time-section {
       position: fixed;
-      top: 15px;              /* Position 10px from the bottom */
-      right: -30px;                 /* Center horizontally */
+      top: 25px;
+      right: -30px;
       transform: translateX(-50%);
       text-align: right;
       padding: 10px 10px;
@@ -204,15 +228,13 @@
       z-index: 1000;
     }
 
-    /* Increase the font size of the time text */
     #timeInWords {
-      font-size: 1.3em; /* Increase as needed */
+      font-size: 1.3em;
       color: white;
     }
 
-    /* Fix for the hour word styling */
     .hour {
-      color: #ffcc00; /* Complementary color for the hour word */
+      color: #ffcc00;
     }
 
     .typing {
@@ -226,13 +248,84 @@
       align-self: flex-start;
       display: none;
     }
+
     a {
       color: blue;
       text-decoration: underline;
       cursor: pointer;
     }
+
     a:hover {
       color: darkblue;
+    }
+
+    /* Media Queries for Mobile Compatibility */
+    @media (max-width: 768px) {
+      .social-container {
+        left: 120px;
+        top: 10px;
+        transform: none;
+      }
+
+      .example-2 {
+        flex-direction: row;
+        gap: 5px;
+      }
+
+      .example-2 .icon-content a {
+        width: 40px;
+        height: 40px;
+      }
+
+      .example-2 .icon-content a svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .chat-wrapper {
+        padding-left: 10px;
+      }
+
+      .window {
+        right:  7px;
+        top: 25px;
+        width: 97%;
+        height: 85%;
+      }
+
+      .title-bar {
+        font-size: 1.2em;
+      }
+
+      .chat-box {
+        padding: 10px;
+        font-size: 1em;
+      }
+
+      .message, .user-message {
+        max-width: 80%;
+        padding: 10px;
+      }
+
+      .response-box {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .response-box button {
+        width: 100%;
+        margin: 5px 0;
+      }
+
+      #time-section {
+        top: 90px;
+        right: 43px;
+        transform: none;
+      }
+
+      #timeInWords {
+        font-size: 0.85em;
+      }
     }
   </style>
 </head>
