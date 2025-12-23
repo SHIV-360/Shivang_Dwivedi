@@ -42,11 +42,11 @@
         "link": "https://github.com/SHIV-360/HINDI_CHARACTER_RECOGNITION"
     },    
     {
-        "title": "HOLD-MA-KEES Password Manager",
-        "technology": "Python, Tkinter, Pyperclip",
+        "title": "Chrome-Extension HOLD_MA_KEES",
+        "technology": "JavaScript, HTML, CSS, CryptoJS (for AES encryption)",
         "year": "2023",
-        "description": "A simple password manager that generates and stores secure passwords alongside website and email/username information.",
-        "link": "https://github.com/SHIV-360/password_manager"
+        "description": "A Chrome extension for generating, saving, and retrieving secure passwords with a modern purple-white UI. Passwords are encrypted and stored locally using Chrome's chrome.storage.local.",
+        "link": "https://github.com/SHIV-360/Chrome-Extension-HOLD_MA_KEES"
     },    
     {
         "title": "Speed Typing Trainer",
