@@ -49,26 +49,47 @@
             text-align: center;
         }
 
+        /* --- MASONRY / COLLAGE LAYOUT --- */
         .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Increased min size */
-            gap: 15px;
+            /* Creates the column layout */
+            column-count: 3;
+            column-gap: 15px;
             padding: 15px;
-            justify-content: center;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .gallery { column-count: 2; }
+        }
+        @media (max-width: 600px) {
+            .gallery { column-count: 1; }
         }
 
         .gallery img {
             width: 100%;
-            height: auto;
+            height: auto; /* Maintains aspect ratio */
             border: 2px solid black;
             border-radius: 10px;
             box-shadow: 3px 3px 6px gray;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
+            margin-bottom: 15px; /* Space between items vertically */
+            break-inside: avoid; /* Prevents images from being cut across columns */
+            display: block; /* Removes tiny gap at bottom of images */
+            
+            /* Initial state for fade-in effect */
+            opacity: 0; 
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
         }
 
         .gallery img:hover {
-            transform: scale(1.08);
+            transform: scale(1.05);
+            z-index: 10;
+            position: relative;
         }
 
         .button-container {
@@ -85,6 +106,8 @@
             cursor: pointer;
             box-shadow: 2px 2px 0px gray;
             font-size: 14px;
+            text-decoration: none;
+            color: black;
         }
 
         .button:active {
@@ -104,18 +127,16 @@
             background-color: rgba(0, 0, 0, 0.9);
             justify-content: center;
             align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .modal img {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 100%;
+            max-height: 100%;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .modal img:hover {
-            transform: scale(1.05);
+            object-fit: contain;
         }
     </style>
 </head>
@@ -125,39 +146,55 @@
         <div class="title-bar">Gallery</div>
 
         <div class="section">
-            <div class="section-title">"I'm passionate about photography, and I'm excited to share my collection</div>
+            <div class="section-title">"I'm passionate about photography, and I'm excited to share my collection"</div>
             <div class="gallery" id="gallery"></div>
         </div>
 
         <div class="button-container">
-            <a href="index.html">
-                <div class="button">Back to homePage</div>
-            </a>
+            <a href="index.html" class="button">Back to homePage</a>
         </div>
     </div>
 
-    <!-- Modal for Enlarged Image -->
     <div class="modal" id="imageModal">
         <img id="modalImg" src="" alt="Expanded View">
     </div>
 
     <script>
-        const imageDir = "gallary/";  // Make sure this folder exists with images
-        const imageCount = 24; // Number of images
+        // CONFIGURATION pic12 and pic15 are missing i deleted them 
+        const imageDir = "gallary/";  // Folder name (Keep 'gallary/')
+        const checkLimit = 100;       
+        
         const gallery = document.getElementById("gallery");
         const modal = document.getElementById("imageModal");
         const modalImg = document.getElementById("modalImg");
 
-        for (let i = 1; i <= imageCount; i++) {
-            let img = document.createElement("img");
-            img.src = `${imageDir}pic${i}.jpg`;
-            img.alt = `Image ${i}`;
-            img.onclick = function() {
-                modal.style.display = "flex";
-                modalImg.src = this.src;
-            };
-            gallery.appendChild(img);
+        // Function to create and append images
+        function loadImages() {
+            for (let i = 1; i <= checkLimit; i++) {
+                let img = document.createElement("img");
+                img.src = `${imageDir}pic${i}.jpg`;
+                img.alt = `Image ${i}`;
+                
+                // PERFORMANCE: Lazy loading
+                img.loading = "lazy";
+
+                // DYNAMIC: If image fails to load (doesn't exist), remove it from DOM
+                img.onerror = function() {
+                    this.remove();
+                };
+
+                // CLICK EVENT: Open Modal
+                img.onclick = function() {
+                    modal.style.display = "flex";
+                    modalImg.src = this.src;
+                };
+
+                gallery.appendChild(img);
+            }
         }
+
+        // Initialize Gallery
+        loadImages();
 
         // Close modal when clicking outside image
         modal.onclick = function(event) {
