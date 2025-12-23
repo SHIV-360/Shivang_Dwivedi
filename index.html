@@ -124,6 +124,12 @@
     .example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
       background-color: #0077B5;
     }
+    
+    /* Resume Color (Orange/Amber) */
+    .example-2 .icon-content a[data-social="resume"] .filled,
+    .example-2 .icon-content a[data-social="resume"] ~ .tooltip {
+      background-color: #ff9800;
+    }
 
     /* Chat Window Styles */
     .chat-wrapper {
@@ -283,7 +289,6 @@
 
       .example-2 .icon-content:hover .tooltip {
         left: 10%;
-
       }
 
       .example-2 .icon-content a svg {
@@ -339,10 +344,17 @@
   </style>
 </head>
 <body>
-  <!-- Social Icons on the Left Edge -->
   <div class="social-container">
     <ul class="example-2">
-      <!-- GitHub Icon -->
+      <li class="icon-content">
+        <a href="https://github.com/SHIV-360/SHIV-360/blob/main/Shivang_Resume_2.pdf" aria-label="Resume" data-social="resume" target="_blank" rel="noopener noreferrer">
+          <div class="filled"></div>
+          <svg viewBox="0 0 512 512">
+            <path d="M384 128h-128V0L384 128zM256 160V0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V160H256z" fill="currentColor"></path>
+          </svg>
+        </a>
+        <div class="tooltip">Resume</div>
+      </li>
       <li class="icon-content">
         <a href="https://github.com/SHIV-360/" aria-label="GitHub" data-social="github" target="_blank" rel="noopener noreferrer">
           <div class="filled"></div>
@@ -360,7 +372,33 @@
         </a>
         <div class="tooltip">GitHub</div>
       </li>
-      <!-- Spotify Icon -->
+      <li class="icon-content">
+        <a href="https://mail.google.com/" aria-label="Gmail" data-social="gmail" target="_blank" rel="noopener noreferrer">
+          <div class="filled"></div>
+          <svg viewBox="0 0 512 512">
+            <path d="M502.3 190.8L327.4 338.2c-20.6 17.7-50.5 17.7-71.1 0L9.7 190.8
+              C3.9 186.9 0 180.8 0 174.3V80c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v94.3c0 6.5-3.9
+              12.6-9.7 16.5z" fill="currentColor"></path>
+            <path d="M480 128H32c-17.7 0-32 14.3-32 32v240c0 17.7 14.3 32 32
+              32h448c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32zM464 416H48V176l208
+              142.9 208-142.9v240z" fill="currentColor"></path>
+          </svg>
+        </a>
+        <div class="tooltip">shivangd262@gmail.com</div>
+      </li>
+      <li class="icon-content">
+        <a href="https://www.linkedin.com/in/shivang-dwivedi-36o/" aria-label="LinkedIn" data-social="linkedin" target="_blank" rel="noopener noreferrer">
+          <div class="filled"></div>
+          <svg viewBox="0 0 448 512">
+            <path d="M100.28 448H7.4V148.9h92.88zm-46.44-341C24.16 107 0
+              82.84 0 53.86A53.77 53.77 0 0153.84 0c29.88 0 53.84 24.2 53.84 53.86
+              0 28.98-24 53.14-53.84 53.14zM447.9 448h-92.68V302.4c0-34.7-12.4-58.4-43.36-58.4-23.64
+              0-37.76 15.92-44 31.3-2.28 5.56-2.84 13.32-2.84 21.16V448h-92.7s1.24-241.1 0-266.1h92.7v37.7c12.32-19
+              34.36-46 83.64-46 61.14 0 107 39.88 107 125.44z" fill="currentColor"></path>
+          </svg>
+        </a>
+        <div class="tooltip">LinkedIn</div>
+      </li>
       <li class="icon-content">
         <a href="https://open.spotify.com/user/czaep85onxxkyl0lz8gf3pmvc?si=4fbc99c6f96c43ff" aria-label="Spotify" data-social="spotify" target="_blank" rel="noopener noreferrer">
           <div class="filled"></div>
@@ -377,38 +415,8 @@
         </a>
         <div class="tooltip">Spotify</div>
       </li>
-      <!-- Gmail Icon -->
-      <li class="icon-content">
-        <a href="https://mail.google.com/" aria-label="Gmail" data-social="gmail" target="_blank" rel="noopener noreferrer">
-          <div class="filled"></div>
-          <svg viewBox="0 0 512 512">
-            <path d="M502.3 190.8L327.4 338.2c-20.6 17.7-50.5 17.7-71.1 0L9.7 190.8
-              C3.9 186.9 0 180.8 0 174.3V80c0-26.5 21.5-48 48-48h416c26.5 0 48 21.5 48 48v94.3c0 6.5-3.9
-              12.6-9.7 16.5z" fill="currentColor"></path>
-            <path d="M480 128H32c-17.7 0-32 14.3-32 32v240c0 17.7 14.3 32 32
-              32h448c17.7 0 32-14.3 32-32V160c0-17.7-14.3-32-32-32zM464 416H48V176l208
-              142.9 208-142.9v240z" fill="currentColor"></path>
-          </svg>
-        </a>
-        <div class="tooltip">shivangd262@gmail.com</div>
-      </li>
-      <!-- LinkedIn Icon -->
-      <li class="icon-content">
-        <a href="https://www.linkedin.com/in/shivang-dwivedi-36o/" aria-label="LinkedIn" data-social="linkedin" target="_blank" rel="noopener noreferrer">
-          <div class="filled"></div>
-          <svg viewBox="0 0 448 512">
-            <path d="M100.28 448H7.4V148.9h92.88zm-46.44-341C24.16 107 0
-              82.84 0 53.86A53.77 53.77 0 0153.84 0c29.88 0 53.84 24.2 53.84 53.86
-              0 28.98-24 53.14-53.84 53.14zM447.9 448h-92.68V302.4c0-34.7-12.4-58.4-43.36-58.4-23.64
-              0-37.76 15.92-44 31.3-2.28 5.56-2.84 13.32-2.84 21.16V448h-92.7s1.24-241.1 0-266.1h92.7v37.7c12.32-19
-              34.36-46 83.64-46 61.14 0 107 39.88 107 125.44z" fill="currentColor"></path>
-          </svg>
-        </a>
-        <div class="tooltip">LinkedIn</div>
-      </li>
     </ul>
   </div>
-  <!-- Chat Window Container -->
   <div class="chat-wrapper">
     <div class="window">
       <div class="title-bar">
@@ -430,8 +438,7 @@
         <button onclick="sendResponse('Books you read')">Books you read</button>
         <button onclick="sendResponse('Gallery')">Gallery</button>
       </div>
-      <!-- Add Time in Words Section Below -->
-    </div>
+      </div>
   </div>
 
   <div id="time-section">
@@ -463,7 +470,7 @@
           document.getElementById('initial-typing').style.display = 'none';
           const initialMessage = document.createElement('p');
           initialMessage.classList.add('message');
-          initialMessage.textContent = "Hi, I'm Shivang. Welcome to my website! What do you want to know?";
+          initialMessage.textContent = "Hi, I'm Shivang. Welcome to my website! For RESUME AND SOCIALS, What do you want to know?";
           chatBox.appendChild(initialMessage);
           initialMessage.style.display = 'block';
           chatBox.scrollTop = chatBox.scrollHeight;
